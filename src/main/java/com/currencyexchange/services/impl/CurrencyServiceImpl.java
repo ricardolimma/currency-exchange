@@ -2,6 +2,7 @@ package com.currencyexchange.services.impl;
 
 import com.currencyexchange.converters.CurrencyConverter;
 import com.currencyexchange.dtos.CurrencyDTO;
+import com.currencyexchange.exceptions.CurrencyApiException;
 import com.currencyexchange.models.CurrencyModel;
 import com.currencyexchange.repositories.CurrencyRepository;
 import com.currencyexchange.services.ICurrencyService;
@@ -26,7 +27,7 @@ public class CurrencyServiceImpl implements ICurrencyService {
 
     @Override
     public ResponseEntity<CurrencyDTO> currencySave(@Valid final CurrencyDTO currencyDTO) {
-        if(Objects.isNull(currencyDTO)) {
+        if (Objects.isNull(currencyDTO)) {
             return ResponseEntity.badRequest().build();
         }
 
@@ -38,7 +39,7 @@ public class CurrencyServiceImpl implements ICurrencyService {
 
 
     @Override
-    public ResponseEntity<Page<CurrencyDTO>> currencyFindAll(final Pageable page) {
+    public ResponseEntity<Page<CurrencyDTO>> currencyFindAll(final Pageable page) throws CurrencyApiException {
 
         try {
             Page<CurrencyModel> currencyModels = currencyRepository.findAll(page);
@@ -47,8 +48,7 @@ public class CurrencyServiceImpl implements ICurrencyService {
             return ResponseEntity.ok(currencyDTOS);
 
         } catch (Exception e) {
-            throw new RuntimeException(e);
-
+            throw new CurrencyApiException("Erro ao Encontrar moedas!");
         }
 
     }

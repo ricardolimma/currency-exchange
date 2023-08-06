@@ -1,16 +1,14 @@
 package com.currencyexchange.controllers;
 
 import com.currencyexchange.dtos.CurrencyDTO;
+import com.currencyexchange.exceptions.CurrencyApiException;
 import com.currencyexchange.services.impl.CurrencyServiceImpl;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge=3600)
@@ -23,12 +21,12 @@ public class CurrencyController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<CurrencyDTO>> getAllCurrencies (@PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC) final Pageable pageable) {
+    public ResponseEntity<Page<CurrencyDTO>> getAllCurrencies (@PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC) final Pageable pageable) throws CurrencyApiException {
         return currencyService.currencyFindAll(pageable);
     }
 
-    @GetMapping("/id")
-    public ResponseEntity<CurrencyDTO> getCurrenciesById(Long id) {
+    @GetMapping("/{id}")
+    public ResponseEntity<CurrencyDTO> getCurrenciesById(@PathVariable(value = "id") final Long id) {
         return currencyService.currencyFindById(id);
     }
 
