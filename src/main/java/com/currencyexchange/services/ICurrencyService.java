@@ -1,6 +1,7 @@
 package com.currencyexchange.services;
 
 import com.currencyexchange.dtos.CurrencyDTO;
+import com.currencyexchange.exceptions.CurrencyApiException;
 import com.currencyexchange.models.CurrencyModel;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -24,7 +25,7 @@ public interface ICurrencyService {
      *
      * @return ResponseEntity com a lista de objetos CurrencyDTO representando todas as moedas e o status HTTP resultante.
      */
-    ResponseEntity<Page<CurrencyDTO>> currencyFindAll(Pageable page);
+    ResponseEntity<Page<CurrencyDTO>> currencyFindAll(Pageable page) throws CurrencyApiException;
 
 
 
