@@ -15,7 +15,7 @@ import java.util.Objects;
 
 @Service
 public class CurrencyExchangeRatesApiServiceImpl implements ICurrencyOpenExchangeRatesApi {
-    private static final String APP_ID = "YOUR API KEY";
+    private static final String APP_ID = "";
 
     private final WebClient webClient;
     private final CurrencyRepository currencyRepository;
