@@ -1,0 +1,43 @@
+2023-08-09T17:44:22,378  INFO org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2023-08-09T17:44:22,400  INFO com.currencyexchange.CurrencyExchangeApplication - Starting CurrencyExchangeApplication using Java 20.0.2 with PID 18820 (C:\Users\Gabri\Documents\Projeto\currency-exchange\target\classes started by Gabri in C:\Users\Gabri\Documents\Projeto\currency-exchange)
+2023-08-09T17:44:22,401 DEBUG com.currencyexchange.CurrencyExchangeApplication - Running with Spring Boot v3.1.2, Spring v6.0.11
+2023-08-09T17:44:22,401  INFO com.currencyexchange.CurrencyExchangeApplication - No active profile set, falling back to 1 default profile: "default"
+2023-08-09T17:44:22,431  INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-08-09T17:44:22,431  INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-08-09T17:44:22,858  INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-09T17:44:22,951  INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 90 ms. Found 1 JPA repository interfaces.
+2023-08-09T17:44:23,315  INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-08-09T17:44:23,321  INFO org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2023-08-09T17:44:23,322  INFO org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2023-08-09T17:44:23,322  INFO org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.11]
+2023-08-09T17:44:23,370  INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-08-09T17:44:23,370  INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 939 ms
+2023-08-09T17:44:23,469  INFO org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-09T17:44:23,504  INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.6.Final
+2023-08-09T17:44:23,505  INFO org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2023-08-09T17:44:23,614  INFO org.hibernate.bytecode.internal.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2023-08-09T17:44:23,702  INFO org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-08-09T17:44:23,713  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-08-09T17:44:23,794  INFO com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1188762f
+2023-08-09T17:44:23,795  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-08-09T17:44:23,823  WARN org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2023-08-09T17:44:23,947  INFO org.hibernate.bytecode.internal.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2023-08-09T17:44:24,340  INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-09T17:44:24,377  INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-09T17:44:24,748  WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-09T17:44:24,922  INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2023-08-09T17:44:24,933  INFO org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2023-08-09T17:44:24,945  INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2023-08-09T17:44:24,954  INFO com.currencyexchange.CurrencyExchangeApplication - Started CurrencyExchangeApplication in 2.848 seconds (process running for 3.506)
+2023-08-09T17:44:32,943  INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-08-09T17:44:32,943  INFO org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-08-09T17:44:32,944  INFO org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2023-08-09T17:44:32,966  INFO com.currencyexchange.controllers.CurrencyController - Requisição para obter moeda pelo ID recebida.
+2023-08-09T17:44:33,010  INFO com.currencyexchange.services.impl.CurrencyServiceImpl - Moeda encontrada com sucesso: AED
+2023-08-09T17:44:33,012  INFO com.currencyexchange.controllers.CurrencyController - Moeda obtida com sucesso.
+2023-08-09T17:44:35,657  INFO com.currencyexchange.controllers.CurrencyController - Requisição para obter todas as moedas recebida.
+2023-08-09T17:44:35,713  INFO com.currencyexchange.services.impl.CurrencyServiceImpl - Listagem de moedas realizada com sucesso.
+2023-08-09T17:44:35,713  INFO com.currencyexchange.controllers.CurrencyController - Obtidas todas as moedas com sucesso.
+2023-08-09T17:44:38,814  INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-09T17:44:38,816  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-08-09T17:44:38,820  INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
