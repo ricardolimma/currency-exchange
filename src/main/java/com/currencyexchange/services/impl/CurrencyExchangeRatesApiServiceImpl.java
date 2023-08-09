@@ -6,6 +6,8 @@ import com.currencyexchange.models.OpenExchangeRatesApiRequest;
 import com.currencyexchange.models.OpenExchangeRatesApiResponse;
 import com.currencyexchange.repositories.CurrencyRepository;
 import com.currencyexchange.services.ICurrencyOpenExchangeRatesApi;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -15,7 +17,9 @@ import java.util.Objects;
 
 @Service
 public class CurrencyExchangeRatesApiServiceImpl implements ICurrencyOpenExchangeRatesApi {
-    private static final String APP_ID = "";
+
+    private static final Logger log = LogManager.getLogger(CurrencyExchangeRatesApiServiceImpl.class);
+    private static final String APP_ID = "YOUR API KEY";
 
     private final WebClient webClient;
     private final CurrencyRepository currencyRepository;
@@ -75,6 +79,6 @@ public class CurrencyExchangeRatesApiServiceImpl implements ICurrencyOpenExchang
     @Scheduled(cron = "0 0 * * * *")
     public void fetchAndSaveCurrenciesApi() throws CurrencyApiException {
         fetchAndSaveCurrencies();
+        log.info("Atualização das taxas de câmbio realizada com sucesso.");
     }
-
 }

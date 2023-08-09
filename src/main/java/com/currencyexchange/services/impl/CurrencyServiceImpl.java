@@ -7,6 +7,8 @@ import com.currencyexchange.models.CurrencyModel;
 import com.currencyexchange.repositories.CurrencyRepository;
 import com.currencyexchange.services.ICurrencyService;
 import jakarta.validation.Valid;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -17,6 +19,9 @@ import java.util.Objects;
 
 @Service
 public class CurrencyServiceImpl implements ICurrencyService {
+
+    private static final Logger log = LogManager.getLogger(CurrencyServiceImpl.class);
+
     private final CurrencyRepository currencyRepository;
     private final CurrencyConverter currencyConverter;
 
@@ -34,23 +39,22 @@ public class CurrencyServiceImpl implements ICurrencyService {
         CurrencyModel currencyModel = currencyConverter.convertCurrencyDtoToModel(currencyDTO);
         currencyRepository.save(currencyModel);
 
+        log.info("Moeda salva com sucesso: {}", currencyDTO.currencyCode());
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-
     @Override
     public ResponseEntity<Page<CurrencyDTO>> currencyFindAll(final Pageable page) throws CurrencyApiException {
-
         try {
             Page<CurrencyModel> currencyModels = currencyRepository.findAll(page);
             Page<CurrencyDTO> currencyDTOS = currencyConverter.convertPageModelToDto(currencyModels);
 
+            log.info("Listagem de moedas realizada com sucesso.");
             return ResponseEntity.ok(currencyDTOS);
-
         } catch (Exception e) {
-            throw new CurrencyApiException("Erro ao Encontrar moedas!");
+            log.error("Erro ao listar moedas: {}", e.getMessage());
+            throw new CurrencyApiException("Erro ao encontrar moedas!");
         }
-
     }
 
     @Override
@@ -58,6 +62,7 @@ public class CurrencyServiceImpl implements ICurrencyService {
         CurrencyModel optionalCurrencyModel = currencyRepository.findById(id).orElseThrow(RuntimeException::new);
         CurrencyDTO currencyDTO = currencyConverter.convertCurrencyModelToDto(optionalCurrencyModel);
 
+        log.info("Moeda encontrada com sucesso: {}", currencyDTO.currencyCode());
         return ResponseEntity.ok(currencyDTO);
     }
 }
